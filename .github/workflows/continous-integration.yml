@@ -5,7 +5,7 @@ on:
     types: [synchronize]
 
 jobs:
-  Run Tests:
+  build:
     name: Setup and Run Tests
     runs-on: ubuntu-latest
     steps:
