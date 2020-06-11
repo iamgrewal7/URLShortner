@@ -1,0 +1,16 @@
+name: Continuous Integration
+on:
+  push:
+  pull_request:
+    types: [synchronize]
+
+jobs:
+  Run Tests:
+    name: Setup and Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - run: python tests.py
