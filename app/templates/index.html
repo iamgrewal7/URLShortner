@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<form method="post" action="">
+  {{form.csrf_token}}
+  {{ form.url.label }} {{ form.url(size=20) }}
+  <input type="submit" value="Go"><br>
+</form>
+
+</body>
+</html>
