@@ -1,5 +1,5 @@
 import unittest
-from lib import UrlShortner
+from lib.url_shortner import UrlShortner
 from random import randint
 
 class TestUrlShortner(unittest.TestCase):
