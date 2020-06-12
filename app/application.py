@@ -4,21 +4,21 @@ from app.lib.url_shortner import UrlShortner
 from app.settings import db, app
 from app.models import URL
 
-BASE_URL = 'https://mighty-waters-06458.herokuapp.com'
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     form = UrlForm()
     short_url = None
+    base_url = request.url_root
     if form.validate_on_submit():
         existing_url = URL.query.filter_by(url=form.url.data).first()
         if existing_url:
-            short_url = f'{BASE_URL}/{UrlShortner.id_to_url(existing_url.id)}'
+            short_url = f'{base_url}{UrlShortner.id_to_url(existing_url.id)}'
         else:
             new_url = URL(url=form.url.data)
             db.session.add(new_url)
             db.session.commit()
-            short_url = f'{BASE_URL}/{UrlShortner.id_to_url(new_url.id)}'
+            short_url = f'{base_url}{UrlShortner.id_to_url(new_url.id)}'
     return render_template('index.html', form=form, short_url=short_url)
 
 @app.route('/<path:short_url>')
