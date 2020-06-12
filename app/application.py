@@ -4,7 +4,7 @@ from app.lib.url_shortner import UrlShortner
 from app.settings import db, app
 from app.models import URL
 
-BASE_URL = 'https://mighty-waters-06458.herokuapp.com/ '
+BASE_URL = 'https://mighty-waters-06458.herokuapp.com'
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
