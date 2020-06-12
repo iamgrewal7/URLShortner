@@ -1,4 +1,4 @@
-from settings import db
+from app.settings import db
 
 class URL(db.Model):
     id = db.Column(db.Integer, primary_key=True)
